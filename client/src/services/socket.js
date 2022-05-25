@@ -1,14 +1,12 @@
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
-const URL = "http://localhost:4000";
+// const URL = "http://localhost:4000";
 
-const socket = io.connect(URL);
+// export const socket = io.connect(URL, {transpors:['websocket', 'polling']});
 
-export function getData() {
-   socket.emit("start");
-  socket.on("ticker", function (response) {
-    return response.data;
-  });
-}
-
-export default socket;
+// export function getData(socket) {
+//    socket.emit("start");
+//   socket.on("ticker",  (response) => {
+//     return response;
+//   });
+// }

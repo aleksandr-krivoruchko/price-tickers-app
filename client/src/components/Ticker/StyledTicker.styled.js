@@ -2,9 +2,12 @@ import styled from '@emotion/styled';
 
 export const StyledTicker = styled.li`
   display: flex;
+  justify-content: space-between;
+  text-align: center;
   color: yellow;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid yellow;
 `;
 
 export const ButtonStyle = styled.button`
@@ -19,4 +22,13 @@ export const ButtonStyle = styled.button`
     border: 2px solid blue;
     color: blue;
   }
+`;
+export const Text = styled.p`
+color: blue;
+margin-right:15px;
+`;
+export const TextWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: end;
 `;

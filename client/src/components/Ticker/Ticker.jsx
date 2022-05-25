@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
-import {StyledTicker } from './StyledTicker.styled';
+import {StyledTicker, Text, TextWrapper } from './StyledTicker.styled';
 
 export function Ticker({ ticker, exchange, price, change, change_percent }) {
    return <StyledTicker>
-      <p>{`${ticker} => ${exchange}(US)`}</p>
-      <p>{`${price}$ / ${change}$ / ${change_percent}%`}</p>
+      <Text>{`${ticker} => ${exchange}(US)`}</Text>
+      <TextWrapper>
+         <Text>{`Price: ${price}$`}</Text>
+      <Text>{`Change: ${change}$`}</Text>
+      <Text>{(`Change_percent: ${change_percent.toFixed(2)}%   `)}</Text></TextWrapper>
    </StyledTicker>
 }
 
