@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import { ContainerStyle, Title } from './StyledContainer.styled';
+import PropTypes from "prop-types";
+import { StyledContainer, Title } from "./StyledContainer.styled";
 
 export function Container({ title, children }) {
   return (
-    <ContainerStyle>
+    <StyledContainer>
       <Title>{title}</Title>
       {children}
-    </ContainerStyle>
+    </StyledContainer>
   );
 }
 
