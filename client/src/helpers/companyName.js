@@ -22,7 +22,7 @@ export function getCompanyNameByTicker(ticker) {
       break;
 
     default:
-      name = ticker;
+      name = "";
       break;
   }
   return name;

@@ -65,8 +65,7 @@ const data = [
 ];
 
 export function TickersList() {
-  const getQuotes = (state) => state.tickers.quotes;
-  const quotes = useSelector(getQuotes);
+  const quotes = useSelector((state) => state.tickers.quotes);
   return (
     <ul>
       {quotes &&

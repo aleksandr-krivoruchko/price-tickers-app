@@ -1,10 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import tickersReducer from './slice'
-import  tickersMiddleware  from "./middleware";
+import { configureStore } from "@reduxjs/toolkit";
+import tickersReducer from "./slice";
+import tickersMiddleware from "./middleware";
 
 export const store = configureStore({
-   reducer: {
-     tickers: tickersReducer
+  reducer: {
+    tickers: tickersReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(tickersMiddleware),
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(tickersMiddleware),
+});
