@@ -10,24 +10,17 @@ export const StyledTicker = styled.li`
   padding: 5px;
 `;
 
-export const ButtonStyle = styled.button`
-  margin-right: 20px;
-  color: yellow;
-  background-color: transparent;
-  border-color: yellow;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  &:hover {
-    border: 2px solid blue;
-    color: blue;
-  }
-`;
 export const TextWrapper = styled.div`
   min-width: 50%;
   display: flex;
   align-items: center;
   justify-content: left;
+`;
+export const QuotesWrapper = styled.div`
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Text = styled.p`
@@ -35,10 +28,10 @@ export const Text = styled.p`
   color: blue;
 `;
 export const Name = styled.p`
-  color: #000000;
   font-size: 30px;
+  font-weight: 700;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: 20px;
 `;
 const dynamicStyle = (props) =>
   css`

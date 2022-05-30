@@ -1,17 +1,14 @@
-import { useEffect } from "react";
 import { Container } from "../Container/Container";
 import { TickersList } from "../TickersList/TickersList";
-import { useDispatch } from "react-redux";
-import { tickers } from "../../redux/slice";
+import { useStart } from "../../hooks/useStart";
+import { Toaster } from 'react-hot-toast';
 
 export function App() {
-  const dispatch = useDispatch();
-
-  dispatch(tickers.startConnecting());
-
+  // useStart();
   return (
-    <Container title="Price Tickers">
+    <Container title="Price  Tickers">
       <TickersList />
+      <Toaster position="top-left" duration={3000}/>
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import { Ticker } from "../Ticker/Ticker";
 import { useSelector } from "react-redux";
-import { useIcrOrDecr } from "../../services/hooks";
+
 const data = [
   {
     ticker: "AAPL",
@@ -63,6 +63,7 @@ const data = [
     last_trade_time: "2021-04-30T11:53:21.000Z",
   },
 ];
+
 export function TickersList() {
   const getQuotes = (state) => state.tickers.quotes;
   const quotes = useSelector(getQuotes);

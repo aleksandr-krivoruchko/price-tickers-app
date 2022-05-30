@@ -11,6 +11,6 @@ export function Container({ title, children }) {
 }
 
 Container.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.element,
 };

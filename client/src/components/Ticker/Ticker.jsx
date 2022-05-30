@@ -1,20 +1,20 @@
 import PropTypes from "prop-types";
 import IcomoonReact from "icomoon-react";
 import iconSet from "../../icons/selection.json";
-import { useColorOfTicker } from "../../services/hooks";
-import { GrFormUp, GrFormDown } from "react-icons/gr";
 import {
   StyledTicker,
   Text,
-  TextWrapper,
-  Indicator,
+   TextWrapper,
+  QuotesWrapper,
   Name,
 } from "./StyledTicker.styled";
-import { getCompanyNameByTicker } from "../../services/companyName";
+import { getCompanyNameByTicker } from "../../helpers/companyName";
+import { usePriceDirectionColor } from "../../hooks/usePriceDirection";
+import { PriceQuote, PriceChange, PercentagePriceChange } from "../Quotes/Quotes";
 
 export function Ticker({ ticker, price, change, change_percent }) {
   const companyName = getCompanyNameByTicker(ticker);
-  const color = useColorOfTicker(ticker);
+  const color = usePriceDirectionColor(ticker);
   return (
     <StyledTicker>
       <TextWrapper>
@@ -26,37 +26,18 @@ export function Ticker({ ticker, price, change, change_percent }) {
         <Name>{companyName}</Name>
         <Text>{ticker}</Text>
       </TextWrapper>
-      <TextWrapper>
-        <Indicator>{`${price}$`}</Indicator>
-        <Indicator color={color}>
-          {color === "red" ? `-${change}$` : `+${change}$`}
-        </Indicator>
-        {color === "red" ? (
-          <>
-            <GrFormDown color="red" />
-            <Indicator color={color}>{`${Number(change_percent).toFixed(
-              2
-            )}%`}</Indicator>
-          </>
-        ) : (
-          <>
-            <GrFormUp color="green" />
-            <Indicator color={color}>{`${Number(change_percent).toFixed(
-              2
-            )}%`}</Indicator>
-          </>
-        )}
-        {/* <Indicator color={color}>{`${Number(change_percent).toFixed(
-          2
-        )}%`}</Indicator> */}
-      </TextWrapper>
+      <QuotesWrapper>
+        <PriceQuote value={price}/>
+         <PriceChange value={change} color={color} />
+         <PercentagePriceChange value={change_percent}  color={color}/>
+      </QuotesWrapper>
     </StyledTicker>
   );
 }
 
-// Ticker.propTypes = {
-//   ticker: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   change: PropTypes.number.isRequired,
-//   change_percent: PropTypes.number.isRequired,
-// };
+Ticker.propTypes = {
+  ticker: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  change: PropTypes.string.isRequired,
+  change_percent: PropTypes.string.isRequired,
+};
