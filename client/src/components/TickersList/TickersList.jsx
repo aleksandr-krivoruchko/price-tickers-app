@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 
 const data = [
   {
-    ticker: "AAPL",
+    ticker: "q",
     exchange: "NASDAQ",
-    price: 279.29,
+    price: 'qqqq',
     change: 64.52,
-    change_percent: 0.84,
-    dividend: 0.56,
+    change_percent: 'q0.56q',
+    dividend: 'q0.56q',
     yield: 1.34,
     last_trade_time: "2021-04-30T11:53:21.000Z",
   },

@@ -17,15 +17,15 @@ import {
 } from "../Quotes/Quotes";
 
 export function Ticker({
-  ticker = "",
-  price = "",
-  change = "",
-  change_percent = "",
+  ticker,
+  price,
+  change,
+  change_percent,
 }) {
   const companyName = getCompanyNameByTicker(ticker);
   const color = usePriceDirectionColor(ticker);
   return (
-    <StyledTicker>
+    ticker && <StyledTicker>
       <TextWrapper>
         <IcomoonReact
           iconSet={iconSet}
@@ -45,8 +45,8 @@ export function Ticker({
 }
 
 Ticker.propTypes = {
-  ticker: PropTypes.string,
-  price: PropTypes.string,
-  change: PropTypes.string,
-  change_percent: PropTypes.string,
+  ticker: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  change: PropTypes.string.isRequired,
+  change_percent: PropTypes.string.isRequired,
 };

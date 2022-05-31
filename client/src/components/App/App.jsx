@@ -4,7 +4,7 @@ import { useStart } from "../../hooks/useStart";
 import { Toaster } from "react-hot-toast";
 
 export function App() {
-  // useStart();
+  useStart();
   return (
     <Container title="Price  Tickers">
       <TickersList />

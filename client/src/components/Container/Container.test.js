@@ -7,12 +7,12 @@ describe("renders Container component", () => {
     expect(screen.getByRole("heading")).toBeInTheDocument();
   });
 
-  test("renders with title Container", () => {
+  test("renders with title", () => {
     render(<Container title="Hello world" />);
     expect(screen.getByText(/hello world/i)).toBeInTheDocument();
   });
 
-  test("renders with title and children Container", () => {
+  test("renders with title and children", () => {
     render(
       <Container title="Hello world">
         <ul>List</ul>

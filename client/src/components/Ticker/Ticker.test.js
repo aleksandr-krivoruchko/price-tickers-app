@@ -1,8 +1,10 @@
-import { queryByRole, render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { Ticker } from "./Ticker";
 import { renderWithRedux } from "../../helpers/renderWithRedux";
 
-const quotes = [
+const filledInitialState = {
+  tickers: {
+    quotes: [
   {
     ticker: "AAPL",
     exchange: "NASDAQ",
@@ -16,18 +18,29 @@ const quotes = [
     price: "237.08",
     change: "154.38",
     change_percent: "0.1",
-  },
-];
+  }
+]
+  }
+}
+const emptyInitialState = {
+  tickers: {
+    quotes: []
+  }
+}
 
 describe("renders Ticker component", () => {
-  test("renders without props component", () => {
-    renderWithRedux(<Ticker />, {
-      tickers: { quotes: [] },
-    });
+  
+  test("renders with empty props", () => {
+    renderWithRedux(<Ticker ticker = ""
+  price = ""
+  change = ""
+  change_percent = ""
+    />, emptyInitialState);
     expect(screen.queryByRole("list-item")).toBeNull();
   });
-  test("renders with props component", () => {
-    const { ticker, exchange, price, change, change_percent } = quotes[0];
+
+  test("renders with filled props", () => {
+    const { ticker, exchange, price, change, change_percent } = filledInitialState.tickers.quotes[0];
     renderWithRedux(
       <Ticker
         ticker={ticker}
@@ -36,9 +49,7 @@ describe("renders Ticker component", () => {
         change={change}
         change_percent={change_percent}
       />,
-      {
-        tickers: { quotes: quotes },
-      }
+      filledInitialState
     );
     expect(screen.getByText(/Apple/i)).toBeInTheDocument();
   });

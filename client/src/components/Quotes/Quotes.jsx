@@ -1,20 +1,52 @@
+import PropTypes from "prop-types";
 import { Indicator, Price, Box } from "./StyledQuoted";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { colors } from "../../constants/colors";
-const {lightGreen, lightRed, darkRed } = colors;
 
-export function PriceQuote({value}) {
-   return <Price>{`${Number(value).toFixed(2)}$`}</Price>
+const { lightGreen, lightRed, darkRed, gray } = colors;
+
+const formatedValue = (value) => {
+   return `${Number(value).toFixed(2)}`;
 }
 
-export function PriceChange({value, color}) {
-   return <Indicator color={color}>{color === darkRed ? `-${Number(value).toFixed(2)}$` : `+${Number(value).toFixed(2)}$`}
+export function PriceQuote({ value }) {
+   console.log(isNaN(formatedValue(value)));
+      if (value === '' || isNaN(formatedValue(value))) {
+      return <Indicator color={gray}>0$</Indicator>
+   }
+   return <Price>{`${formatedValue(value)}$`}</Price>
+}
+
+export function PriceChange({ value, color }) {
+   if (value === '' || isNaN(formatedValue(value))) {
+      return <Indicator color={gray}>0$</Indicator>
+   }
+
+   return <Indicator color={color}>{color === darkRed ? `-${formatedValue(value)}$` : `+${formatedValue(value)}$`}
    </Indicator>
 }
 
-export function PercentagePriceChange({value, color}) {
+export function PercentagePriceChange({ value, color }) {
+   if (value === '' || isNaN(formatedValue(value))) {
+      return <Box backgroundColor={gray} >
+   <Indicator color='#fff'>0%</Indicator>
+   </Box>
+   }
    return <Box backgroundColor={color === darkRed ? lightRed : lightGreen}>
-      {color === darkRed ? <BsArrowDown color={color}/> : <BsArrowUp color={color}/>}
-   <Indicator color={color}>{`${Number(value).toFixed(2)}%`}</Indicator>
+     {color === darkRed ? <BsArrowDown color={color} data-testid='arrow-down'/> : <BsArrowUp color={color} data-testid='arrow-up'/>}
+   <Indicator color={color}>{`${formatedValue(value)}%`}</Indicator>
    </Box>
 }
+
+PriceQuote.propTypes = {
+  value: PropTypes.string.isRequired,
+};
+PriceChange.propTypes = {
+   value: PropTypes.string.isRequired,
+     color: PropTypes.string.isRequired,
+};
+PercentagePriceChange.propTypes = {
+   value: PropTypes.string.isRequired,
+     color: PropTypes.string.isRequired,
+};
+
