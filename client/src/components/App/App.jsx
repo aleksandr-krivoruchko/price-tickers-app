@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 export function App() {
   useStart();
+
   return (
     <Container title="Price  Tickers">
       <TickersList />

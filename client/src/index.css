@@ -25,14 +25,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: linear-gradient(to bottom, #00b9ff 50%, #ffb800 50%); */
+  background-image: linear-gradient(to bottom, #d0f4ff 50%, #ffffc0 50%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-.icon {
-  stroke: #ffb800;
-  fill: #00b9ff;
 }

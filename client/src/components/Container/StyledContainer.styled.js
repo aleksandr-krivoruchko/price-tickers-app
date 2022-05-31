@@ -6,10 +6,11 @@ export const StyledContainer = styled.div`
   padding: 20px;
 `;
 export const Title = styled.h1`
-font-family: "Helvetica Neue";
-text-align: center;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  text-align: center;
   font-size: 40px;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   margin-bottom: 50px;
   text-transform: uppercase;
+  color: #0c343d;
 `;

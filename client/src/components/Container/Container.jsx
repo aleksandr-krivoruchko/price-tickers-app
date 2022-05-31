@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { StyledContainer, Title } from "./StyledContainer.styled";
-
 export function Container({ title, children }) {
   return (
     <StyledContainer>

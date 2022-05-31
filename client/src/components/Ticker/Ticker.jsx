@@ -16,31 +16,29 @@ import {
   PercentagePriceChange,
 } from "../Quotes/Quotes";
 
-export function Ticker({
-  ticker,
-  price,
-  change,
-  change_percent,
-}) {
+export function Ticker({ ticker, price, change, change_percent }) {
   const companyName = getCompanyNameByTicker(ticker);
   const color = usePriceDirectionColor(ticker);
+
   return (
-    ticker && <StyledTicker>
-      <TextWrapper>
-        <IcomoonReact
-          iconSet={iconSet}
-          size={50}
-          icon={companyName.toLowerCase()}
-        />
-        <Name>{companyName}</Name>
-        <Text>{ticker}</Text>
-      </TextWrapper>
-      <QuotesWrapper>
-        <PriceQuote value={price} />
-        <PriceChange value={change} color={color} />
-        <PercentagePriceChange value={change_percent} color={color} />
-      </QuotesWrapper>
-    </StyledTicker>
+    ticker && (
+      <StyledTicker>
+        <TextWrapper>
+          <IcomoonReact
+            iconSet={iconSet}
+            size={50}
+            icon={companyName.toLowerCase()}
+          />
+          <Name>{companyName}</Name>
+          <Text>{ticker}</Text>
+        </TextWrapper>
+        <QuotesWrapper>
+          <PriceQuote value={price} />
+          <PriceChange value={change} color={color} />
+          <PercentagePriceChange value={change_percent} color={color} />
+        </QuotesWrapper>
+      </StyledTicker>
+    )
   );
 }
 

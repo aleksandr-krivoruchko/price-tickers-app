@@ -5,9 +5,11 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 
 test("renders App component", () => {
-   render(<Provider store={store}>
+  render(
+    <Provider store={store}>
       <App />
-   </Provider>);
+    </Provider>
+  );
   expect(screen.getByText(/Price Tickers/i)).toBeInTheDocument();
   expect(screen.getByRole("list")).toBeInTheDocument();
 });
